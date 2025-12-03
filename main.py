@@ -35,40 +35,45 @@ print(Student_Request[2][1])
 ##############################################################################
 ### 3. Quantity Extraction
 # Create a **separate list that contains only the quantities requested** by the students.
-Quantity = [request[2] for request in Student_Request ]
+Quantity = [request[2] for request in Student_Request]
 
 ##############################################################################
 ### 4. Order Size Analysis
 # Analyze the quantities:
- #- If **any quantity is greater than 5**, label the order:
-  #  “Large order detected!”
+#- If **any quantity is greater than 5**, label the order:
+#  “Large order detected!”
 #- Otherwise label the order:
-  # “Orders within normal limits.”
+# “Orders within normal limits.”
+quantities_int = [int(q) for q in Quantity]
 
-
+if any(q > 5 for q in quantities_int):
+    print("Large order detected!")
+else:
+    print("Orders within normal limits.")
 
 ### 5. Quantity Organization
 #Re-organize the quantity list from **smallest to largest** and display the final result.
-
+sorted_Quantity = sorted(quantities_int)
+print(sorted_Quantity)
 
 
 ## Challenge Extension: Classroom Storage Grid
 
 # You are also given a grid showing classroom supply counts:
-
-# Classroom 1: 8, 12, 5  
-# Classroom 2: 7, 3, 9  
-#Classroom 3: 10, 6, 4  
-
+# Classroom_1= 8, 12, 5
+# #Classroom_2: 7, 3, 9  
+#Classroom_3: 10, 6, 4  
+Classrooms=[[ 8, 12, 5], [ 7, 3, 9], [10, 6, 4]]
 ############################################################################
 #Answer the following:
 
 #1. What is the **middle number** in the second classroom’s list?
-
+print(Classrooms[1][1])
 #2. Create a new list that extracts **only the last number** from each classroom.
-
+last_numbers = [row[-1] for row in Classrooms]
+print(last_numbers)
 #3. Explain **why this information must be stored as a nested structure instead of a single list.**
-
+# It neeed to be sorted into one connected structure due to the facotre that its a school connected together, causing it to be more pratical to do it like this.
 
 ############################################################################
 ## What This Assignment Tests
